@@ -1,9 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:led_banner/controllers/dashboard_bindings.dart';
-import 'package:led_banner/controllers/main_bindings.dart';
-import 'package:led_banner/pages/dashboard_page.dart';
+import 'package:led_banner/localization_service.dart';
 import 'package:led_banner/pages/splash_page.dart';
 
 void main(){
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
+        // locale: window.locale,
+        // fallbackLocale: LocalizationService.fallbackLocale,
+        // translations: LocalizationService(),
         title: "Led Banner",
         initialBinding: DashboardBinding(),
         home: SplashPage(),

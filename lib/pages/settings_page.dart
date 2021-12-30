@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:led_banner/theme/color_theme.dart';
 import 'package:led_banner/theme/text_theme.dart';
 
@@ -29,20 +27,27 @@ class SettingsPage extends StatelessWidget {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15.sp)),
-                  color: const Color(0xff383838).withOpacity(0.9),
+                  borderRadius: BorderRadius.all(Radius.circular(8.sp)),
+                  color: const Color(0xff2D2A38),
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15.sp, vertical: 18.sp),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Change password', style: font16),
-                      SvgPicture.asset(
-                        'assets/icons/settings_icon.svg',
-                        width: 8.w,
-                        color: Color(0xffE7E7E7),
+                      Image.asset(
+                        'assets/icons/term_of_us_icon.png',
                       ),
+                      SizedBox(
+                        width: 24.w,
+                      ),
+                      Text('Terms of Use', style: body1.copyWith(color: Colors.white)),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Color(0xff1B1D29),
+                        size: 16.sp,
+                      )
                     ],
                   ),
                 ),
@@ -51,84 +56,145 @@ class SettingsPage extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(width: 2, color: Color(0xff383838)),
-                ),
-              ),
+            InkWell(
+              onTap: (){
+                // Get.to(ChangePasswordPage());
+              },
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(15.sp),
-                    topLeft: Radius.circular(15.sp),
-                  ),
-                  color: const Color(0xff383838).withOpacity(0.9),
+                  borderRadius: BorderRadius.all(Radius.circular(8.sp)),
+                  color: const Color(0xff2D2A38),
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15.sp, vertical: 18.sp),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Term of use', style: font16),
-                      SvgPicture.asset(
-                        'assets/icons/settings_icon.svg',
-                        width: 8.w,
-                        color: Color(0xffE7E7E7),
+                      Image.asset(
+                        'assets/icons/privacy_policy_icon.png',
                       ),
+                      SizedBox(
+                        width: 24.w,
+                      ),
+                      Text('Privacy Policy', style: body1.copyWith(color: Colors.white)),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Color(0xff1B1D29),
+                        size: 16.sp,
+                      )
                     ],
                   ),
                 ),
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(width: 2, color: Color(0xff383838)),
-                ),
-              ),
+            SizedBox(
+              height: 20.h,
+            ),
+            InkWell(
+              onTap: (){
+                // Get.to(ChangePasswordPage());
+              },
               child: Container(
                 decoration: BoxDecoration(
-                  color: const Color(0xff383838).withOpacity(0.9),
+                  borderRadius: BorderRadius.all(Radius.circular(8.sp)),
+                  color: const Color(0xff2D2A38),
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15.sp, vertical: 18.sp),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Privacy policy', style: font16),
-                      SvgPicture.asset(
-                        'assets/icons/settings_icon.svg',
-                        width: 8.w,
-                        color: Color(0xffE7E7E7),
+                      Image.asset(
+                        'assets/icons/support_icon.png',
                       ),
+                      SizedBox(
+                        width: 24.w,
+                      ),
+                      Text('Support', style: body1.copyWith(color: Colors.white)),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Color(0xff1B1D29),
+                        size: 16.sp,
+                      )
                     ],
                   ),
                 ),
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: const Color(0xff383838).withOpacity(0.9),
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(15.sp),
-                  bottomLeft: Radius.circular(15.sp),
+            SizedBox(
+              height: 20.h,
+            ),
+            InkWell(
+              onTap: (){
+                // Get.to(ChangePasswordPage());
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(8.sp)),
+                  color: const Color(0xff2D2A38),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.sp, vertical: 18.sp),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.asset(
+                        'assets/icons/share_the_app_icon.png',
+                      ),
+                      SizedBox(
+                        width: 24.w,
+                      ),
+                      Text('Share the App', style: body1.copyWith(color: Colors.white)),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Color(0xff1B1D29),
+                        size: 16.sp,
+                      )
+                    ],
+                  ),
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.sp, vertical: 18.sp),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Support', style: font16),
-                    SvgPicture.asset(
-                      'assets/icons/settings_icon.svg',
-                      width: 8.w,
-                      color: Color(0xffE7E7E7),
-                    ),
-                  ],
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
+            InkWell(
+              onTap: (){
+                // Get.to(ChangePasswordPage());
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(8.sp)),
+                  color: const Color(0xff2D2A38),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.sp, vertical: 18.sp),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.asset(
+                        'assets/icons/privacy_policy_icon.png',
+                      ),
+                      SizedBox(
+                        width: 24.w,
+                      ),
+                      Text('Rate the App', style: body1.copyWith(color: Colors.white)),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Color(0xff1B1D29),
+                        size: 16.sp,
+                      )
+                    ],
+                  ),
                 ),
               ),
+            ),
+            SizedBox(
+              height: 20.h,
             ),
           ],
         ),

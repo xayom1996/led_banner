@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final fonts = ['Outfit', 'PlayfairDisplay', 'Cinzel', 'RacingSansOne',
@@ -9,7 +10,7 @@ final fontSizes = [24, 36, 48, 64, 72, 96, 144, 288];
 
 final fontColors = [Color(0xffFFFFFF), Color(0xff1B1D29), Color(0xff0BE7FB),
   Color(0xffFECC50), Color(0xffFA448C), Color(0xffF5C1F0), Color(0xffE953DA),
-  Color(0xff4C44CF), Color(0xff70FF00), Color(0xff70FF00)];
+  Color(0xff4C44CF), Color(0xff70FF00)];
 
 final gradients = [
   LinearGradient(
@@ -29,3 +30,26 @@ final gradients = [
       ]
   ),
 ];
+
+final effects = [
+  <Shadow>[
+    Shadow(
+      offset: Offset(0, 0),
+      blurRadius: 4.sp,
+      color: Colors.white,
+    ),
+  ],
+  [],
+];
+
+final textDirections = [Axis.vertical, Axis.horizontal];
+
+final speeds = ['Still', '0.5x', '1x', '1.5x', '2x'];
+
+final backgroundColors = [Color(0xff1B1D29), Color(0xff331A38), Color(0xff142F48),
+  Color(0xff010B8B), Color(0xff491D88), Color(0xff1E8CB0), Color(0xff0BE7FB),
+  Color(0xffFECC50), Color(0xffF5C1F0), Color(0xffE953DA), Color(0xff4C44CF),
+  Color(0xffFA448C)];
+
+final dynamicBackgrounds = [];
+final abstractBackgrounds = [];

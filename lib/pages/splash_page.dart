@@ -40,7 +40,6 @@ class _SplashPageState extends State<SplashPage> {
         body: Container(
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
             gradient: RadialGradient(
               // center: Alignment(0.7, -0.6), // near the top right
               radius: 0.7,

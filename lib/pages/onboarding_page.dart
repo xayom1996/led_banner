@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:led_banner/lang/translates.dart';
 import 'package:led_banner/pages/dashboard_page.dart';
 import 'package:led_banner/theme/text_theme.dart';
 
@@ -13,26 +14,26 @@ class OnBoardingPage extends StatelessWidget {
 
   final explanationPages = [
     ExplanationPage(
-      title: 'Multitasking Split Screen',
-      description: 'Quick switch between fullscreen and dual screen',
+      title: 'Create an LED banner',
+      description: 'Choose a color, dynamic background, font, size, and make your own banner',
       localImages: ['assets/illustration_1.png'],
       isLastPage: false,
     ),
     ExplanationPage(
-      title: 'Help us become better',
-      description: 'Please let us know. We are looking for any feedback',
+      title: 'Help us to improve the app',
+      description: 'We are constantly improving and need your opinion',
       localImages: ['assets/illustration_2.png'],
       isLastPage: false,
     ),
     ExplanationPage(
-      title: 'Web Browser',
-      description: 'Quick and easy access to your favorite websites and screens',
+      title: 'Additional features',
+      description: 'Change the speed or direction of movement, add a flashing effect',
       localImages: ['assets/illustration_3.png'],
       isLastPage: false,
     ),
     ExplanationPage(
-      title: 'Split Screen',
-      description: 'Subscribe to unlock all the features, just \$3.99/week',
+      title: 'Your best creative banner!',
+      description: 'Subscribe to unlock all the features, just \$3.99/week',
       localImages: ['assets/illustration_4.png'],
       isLastPage: true,
     ),
@@ -52,7 +53,6 @@ class OnBoardingPage extends StatelessWidget {
       type: MaterialType.transparency,
       child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
             gradient: RadialGradient(
                 // center: Alignment(0.7, -0.6), // near the top right
                 radius: 0.7,
@@ -100,12 +100,22 @@ class OnBoardingPage extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Spacer(),
+                                    // Spacer(),
                                     Container(
                                       width: MediaQuery.of(context).size.width,
                                       padding: EdgeInsets.symmetric(horizontal: 56.sp),
                                       child: GestureDetector(
                                         onTap: (){
+                                          // separateTranslate();
+                                          if (_currentIndex.value == 3){
+                                            Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => DashboardPage(),
+                                              ),
+                                                  (route) => false,
+                                            );
+                                          }
                                           _controller.nextPage(
                                               duration: Duration(milliseconds: 200),
                                               curve: Curves.easeInOut
@@ -115,38 +125,6 @@ class OnBoardingPage extends StatelessWidget {
                                           'assets/continue_button.png',
                                         ),
                                       ),
-                                      // child: RaisedButton(
-                                      //   shape: RoundedRectangleBorder(
-                                      //     borderRadius: BorderRadius.circular(18.sp),
-                                      //   ),
-                                      //   padding: EdgeInsets.all(16.sp),
-                                      //   onPressed: (){
-                                      //     // if (_currentIndex.value == 3){
-                                      //     //   PasswordController passwordController = Get.find(tag: 'password');
-                                      //     //   Navigator.pushAndRemoveUntil(
-                                      //     //     context,
-                                      //     //     MaterialPageRoute(
-                                      //     //       builder: (context) => passwordController.password.value == ''
-                                      //     //           ? PickPasswordPage()
-                                      //     //           : TypePasswordPage(),
-                                      //     //     ),
-                                      //     //         (route) => false,
-                                      //     //   );
-                                      //     // }
-                                          // _controller.nextPage(
-                                          //     duration: Duration(milliseconds: 200),
-                                          //     curve: Curves.easeInOut
-                                          // );
-                                      //   },
-                                      //   color: Color(0xff00FF66),
-                                      //   child: Text(
-                                      //     'Continue',
-                                      //     style: font28.copyWith(
-                                      //       fontSize: 20.sp,
-                                      //       color: Colors.black
-                                      //     )
-                                      //   ),
-                                      // ),
                                     ),
                                     SizedBox(
                                       height: 25.h,
@@ -155,29 +133,32 @@ class OnBoardingPage extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         Text(
-                                          'Terms of Use',
-                                          textAlign: TextAlign.center,
-                                          style: font14.copyWith(
-                                            decoration: TextDecoration.underline,
-                                          )
+                                            'Terms of Use',
+                                            textAlign: TextAlign.center,
+                                            style: caption.copyWith(
+                                                color: Color(0xff454B5B)
+                                            )
                                         ),
                                         Text(
-                                          'Restore',
-                                          textAlign: TextAlign.center,
-                                          style: font14.copyWith(
-                                            decoration: TextDecoration.underline,
-                                          )
+                                            'Restore',
+                                            textAlign: TextAlign.center,
+                                            style: caption.copyWith(
+                                                color: Color(0xff454B5B)
+                                            )
                                         ),
                                         Text(
-                                          'Privacy policy',
-                                          textAlign: TextAlign.center,
-                                          style: font14.copyWith(
-                                            decoration: TextDecoration.underline,
-                                          )
+                                            'Privacy policy',
+                                            textAlign: TextAlign.center,
+                                            style: caption.copyWith(
+                                              color: Color(0xff454B5B)
+                                            )
                                         )
                                       ],
                                     ),
-                                    Spacer(),
+                                    // SizedBox(
+                                    //   height: 25.h,
+                                    // ),
+                                    // Spacer(),
                                     // SizedBox(
                                     //   height: 16.sp,
                                     // ),
@@ -245,15 +226,15 @@ class ExplanationPage extends StatelessWidget{
             ),
           ),
         Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 40.h),
             for (var img in localImages)
               Column(
                 children: [
                   Align(
-                    alignment: Alignment.bottomCenter,
+                    alignment: Alignment.topCenter,
                     child: Image.asset(
                       img,
                       alignment: Alignment.center,
