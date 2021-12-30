@@ -77,7 +77,7 @@ class SettingsPage extends StatelessWidget {
                       SizedBox(
                         width: 24.w,
                       ),
-                      Text('Privacy Policy', style: body1.copyWith(color: Colors.white)),
+                      Text('privacy_policy'.tr, style: body1.copyWith(color: Colors.white)),
                       Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
