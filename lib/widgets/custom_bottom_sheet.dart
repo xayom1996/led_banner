@@ -126,7 +126,7 @@ class CustomBottomSheet extends StatelessWidget {
                                       },
                                       isActive: parameters.value.font == fonts[i],
                                       child: Text(
-                                        'Aa',
+                                        fontsSymbols[i],
                                         style: TextStyle(
                                           fontSize: 17.sp,
                                           fontFamily: fonts[i],
