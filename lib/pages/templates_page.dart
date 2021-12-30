@@ -84,7 +84,7 @@ class TemplatesPage extends StatelessWidget {
                         BannerPage(
                           parameters: templates[i].obs,
                           isTemplate: true,
-                          bannerText: 'Hello!'.obs,
+                          bannerText: 'hello'.tr.obs,
                         ),
                       );
                     },

@@ -68,7 +68,7 @@ class _SplashPageState extends State<SplashPage> {
               Padding(
                 padding: EdgeInsets.all(16.sp),
                 child: Text(
-                  'LED Banner & Board & Billboard',
+                  'splash_screen'.tr,
                   textAlign: TextAlign.center,
                   style: font28.copyWith(
                       fontSize: 34.sp,

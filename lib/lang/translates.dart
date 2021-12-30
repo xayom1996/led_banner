@@ -1,18 +1,3 @@
-Future<void> separateTranslate() async {
-  var allTranslates = translates['Translates'];
-  Map<String, String> enUS = {};
-  Map<String, String> jaJp = {};
-  Map<String, String> koKR = {};
-  Map<String, String> zhCN = {};
-
-  for (var translate in allTranslates){
-    enUS[translate['key']] = translate['English'];
-    jaJp[translate['key']] = translate['Japanese'];
-    koKR[translate['key']] = translate['Korean'];
-    zhCN[translate['key']] = translate['Chinese'];
-  }
-}
-
 Map<String, dynamic> translates = {
   "Translates": [
     {

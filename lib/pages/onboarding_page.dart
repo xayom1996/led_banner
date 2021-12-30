@@ -14,26 +14,26 @@ class OnBoardingPage extends StatelessWidget {
 
   final explanationPages = [
     ExplanationPage(
-      title: 'Create an LED banner',
-      description: 'Choose a color, dynamic background, font, size, and make your own banner',
+      title: 'onboarding_1_title'.tr,
+      description: 'onboarding_1_descr'.tr,
       localImages: ['assets/illustration_1.png'],
       isLastPage: false,
     ),
     ExplanationPage(
-      title: 'Help us to improve the app',
-      description: 'We are constantly improving and need your opinion',
+      title: 'onboarding_2_title'.tr,
+      description: 'onboarding_2_descr'.tr,
       localImages: ['assets/illustration_2.png'],
       isLastPage: false,
     ),
     ExplanationPage(
-      title: 'Additional features',
-      description: 'Change the speed or direction of movement, add a flashing effect',
+      title: 'onboarding_4_title'.tr,
+      description: 'onboarding_4_descr'.tr,
       localImages: ['assets/illustration_3.png'],
       isLastPage: false,
     ),
     ExplanationPage(
-      title: 'Your best creative banner!',
-      description: 'Subscribe to unlock all the features, just \$3.99/week',
+      title: 'sub_title'.tr,
+      description: 'sub_descr'.tr,
       localImages: ['assets/illustration_4.png'],
       isLastPage: true,
     ),
@@ -106,7 +106,6 @@ class OnBoardingPage extends StatelessWidget {
                                       padding: EdgeInsets.symmetric(horizontal: 56.sp),
                                       child: GestureDetector(
                                         onTap: (){
-                                          // separateTranslate();
                                           if (_currentIndex.value == 3){
                                             Navigator.pushAndRemoveUntil(
                                               context,
@@ -133,21 +132,21 @@ class OnBoardingPage extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         Text(
-                                            'Terms of Use',
+                                            'term_of_use'.tr,
                                             textAlign: TextAlign.center,
                                             style: caption.copyWith(
                                                 color: Color(0xff454B5B)
                                             )
                                         ),
                                         Text(
-                                            'Restore',
+                                            'restore_purchase'.tr,
                                             textAlign: TextAlign.center,
                                             style: caption.copyWith(
                                                 color: Color(0xff454B5B)
                                             )
                                         ),
                                         Text(
-                                            'Privacy policy',
+                                            'privacy_policy'.tr,
                                             textAlign: TextAlign.center,
                                             style: caption.copyWith(
                                               color: Color(0xff454B5B)
@@ -254,9 +253,7 @@ class ExplanationPage extends StatelessWidget{
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: font28.copyWith(
-                      fontWeight: FontWeight.w800
-                    ),
+                    style: font24
                   ),
                 ),
                 SizedBox(
@@ -267,8 +264,8 @@ class ExplanationPage extends StatelessWidget{
                   child: Text(
                     description,
                     textAlign: TextAlign.center,
-                    style: font14.copyWith(
-                      fontSize: 18.sp,
+                    style: body1.copyWith(
+                      color: Color(0xffF5F5F7).withOpacity(0.3)
                     )
                   ),
                 )

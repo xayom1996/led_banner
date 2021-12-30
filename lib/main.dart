@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        // locale: window.locale,
-        // fallbackLocale: LocalizationService.fallbackLocale,
-        // translations: LocalizationService(),
+        locale: window.locale,
+        fallbackLocale: LocalizationService.fallbackLocale,
+        translations: LocalizationService(),
         title: "Led Banner",
         initialBinding: DashboardBinding(),
         home: SplashPage(),

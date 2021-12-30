@@ -38,7 +38,7 @@ class CustomBottomSheet extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          'Text',
+                          'text'.tr,
                           style: headline.copyWith(
                             color: tab.value == 'text'
                                 ? Colors.white
@@ -63,7 +63,7 @@ class CustomBottomSheet extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          'Background',
+                          'background'.tr,
                           style: headline.copyWith(
                               color: tab.value == 'background'
                                   ? Colors.white
@@ -103,7 +103,7 @@ class CustomBottomSheet extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Font',
+                          'font'.tr,
                           style: body3.copyWith(
                             color: Colors.white
                           ),
@@ -142,7 +142,7 @@ class CustomBottomSheet extends StatelessWidget {
                           height: 21.sp,
                         ),
                         Text(
-                          'Font Size',
+                          'font_size'.tr,
                           style: body3.copyWith(
                               color: Colors.white
                           ),
@@ -181,7 +181,7 @@ class CustomBottomSheet extends StatelessWidget {
                           height: 21.sp,
                         ),
                         Text(
-                          'Font Color',
+                          'font_color'.tr,
                           style: body3.copyWith(
                               color: Colors.white
                           ),
@@ -229,7 +229,7 @@ class CustomBottomSheet extends StatelessWidget {
                           height: 21.sp,
                         ),
                         Text(
-                          'Effect',
+                          'effect'.tr,
                           style: body3.copyWith(
                               color: Colors.white
                           ),
@@ -298,7 +298,7 @@ class CustomBottomSheet extends StatelessWidget {
                           height: 21.sp,
                         ),
                         Text(
-                          'Text Direction',
+                          'text_direction'.tr,
                           style: body3.copyWith(
                               color: Colors.white
                           ),
@@ -374,7 +374,7 @@ class CustomBottomSheet extends StatelessWidget {
                           height: 21.sp,
                         ),
                         Text(
-                          'Speed',
+                          'speed'.tr,
                           style: body3.copyWith(
                               color: Colors.white
                           ),
@@ -415,7 +415,7 @@ class CustomBottomSheet extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Background Color',
+                          'background_color'.tr,
                           style: body3.copyWith(
                               color: Colors.white
                           ),
@@ -449,7 +449,7 @@ class CustomBottomSheet extends StatelessWidget {
                           height: 21.sp,
                         ),
                         Text(
-                          'Dynamic Background',
+                          'dynamic_background'.tr,
                           style: body3.copyWith(
                               color: Colors.white
                           ),
@@ -488,7 +488,7 @@ class CustomBottomSheet extends StatelessWidget {
                           height: 21.sp,
                         ),
                         Text(
-                          'Abstract background',
+                          'abstract_background'.tr,
                           style: body3.copyWith(
                               color: Colors.white
                           ),

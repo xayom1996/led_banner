@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 final fonts = ['Outfit', 'PlayfairDisplay', 'Cinzel', 'RacingSansOne',
   'PressStart2P', 'ArchivoBlack', 'Aclonica', 'NotoSansKR', 'NotoSerifKR',
@@ -47,7 +48,7 @@ final effects = [
 
 final textDirections = [Axis.vertical, Axis.horizontal];
 
-final speeds = ['Still', '0.5x', '1x', '1.5x', '2x'];
+final speeds = ['still'.tr, '0.5x', '1x', '1.5x', '2x'];
 
 final backgroundColors = [Color(0xff1B1D29), Color(0xff331A38), Color(0xff142F48),
   Color(0xff010B8B), Color(0xff491D88), Color(0xff1E8CB0), Color(0xff0BE7FB),

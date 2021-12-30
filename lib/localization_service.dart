@@ -36,10 +36,10 @@ class LocalizationService extends Translations {
   // Translations are separated maps in `lang` file
   @override
   Map<String, Map<String, String>> get keys => {
-    // 'en_US': enUS,
-    // 'ja_JP': jaJP,
-    // 'ko_KR': koKR,
-    // 'zh_CN': zhCN,
+    'en_US': enUS,
+    'ja_JP': jaJP,
+    'ko_KR': koKR,
+    'zh_CN': zhCN,
   };
 
   // Gets locale from language, and updates the locale

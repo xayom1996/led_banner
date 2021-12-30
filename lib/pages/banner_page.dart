@@ -69,7 +69,7 @@ class BannerPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'To create a new banner, enter text in the field and select the options you want',
+                          'home_intro_text'.tr,
                           textAlign: TextAlign.center,
                           style: headline.copyWith(
                               color: Colors.white
@@ -145,7 +145,7 @@ class BannerPage extends StatelessWidget {
                           bannerText(value);
                         },
                         decoration: InputDecoration(
-                          hintText: 'Banner text here',
+                          hintText: 'bannex_text_placehoalder'.tr,
                           hintStyle: body1.copyWith(
                             color: Color(0xff454B5B)
                           ),

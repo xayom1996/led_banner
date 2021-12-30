@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:led_banner/theme/color_theme.dart';
 import 'package:led_banner/theme/text_theme.dart';
 
@@ -41,7 +42,7 @@ class SettingsPage extends StatelessWidget {
                       SizedBox(
                         width: 24.w,
                       ),
-                      Text('Terms of Use', style: body1.copyWith(color: Colors.white)),
+                      Text('terms_of_use'.tr, style: body1.copyWith(color: Colors.white)),
                       Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
@@ -111,7 +112,7 @@ class SettingsPage extends StatelessWidget {
                       SizedBox(
                         width: 24.w,
                       ),
-                      Text('Support', style: body1.copyWith(color: Colors.white)),
+                      Text('support'.tr, style: body1.copyWith(color: Colors.white)),
                       Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
@@ -146,7 +147,7 @@ class SettingsPage extends StatelessWidget {
                       SizedBox(
                         width: 24.w,
                       ),
-                      Text('Share the App', style: body1.copyWith(color: Colors.white)),
+                      Text('share_the_app'.tr, style: body1.copyWith(color: Colors.white)),
                       Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
@@ -176,12 +177,12 @@ class SettingsPage extends StatelessWidget {
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image.asset(
-                        'assets/icons/privacy_policy_icon.png',
+                        'assets/icons/rate_the_app_icon.png',
                       ),
                       SizedBox(
                         width: 24.w,
                       ),
-                      Text('Rate the App', style: body1.copyWith(color: Colors.white)),
+                      Text('rate_the_app'.tr, style: body1.copyWith(color: Colors.white)),
                       Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,

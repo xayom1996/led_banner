@@ -32,15 +32,15 @@ class DashboardPage extends StatelessWidget {
           items: [
             {
               'iconPath': 'assets/icons/templates_icon.svg',
-              'title': 'Templates',
+              'title': 'templates'.tr,
             },
             {
               'iconPath': 'assets/icons/edit_icon.svg',
-              'title': 'Banner',
+              'title': 'banner'.tr,
             },
             {
               'iconPath': 'assets/icons/settings_icon.svg',
-              'title': 'Settings',
+              'title': 'settings'.tr,
             },
           ],
           // icons: [

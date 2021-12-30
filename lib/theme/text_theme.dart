@@ -80,6 +80,13 @@ var font16 = TextStyle(
     color: Color(0xffE7E7E7)
 );
 
+var font24 = TextStyle(
+    fontFamily: 'Outfit',
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w500,
+    color: Color(0xffFFFFFF)
+);
+
 var font28 = TextStyle(
     fontFamily: 'Outfit',
     fontSize: 28.sp,
