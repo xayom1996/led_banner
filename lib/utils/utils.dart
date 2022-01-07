@@ -39,7 +39,7 @@ final effects = [
   <Shadow>[
     Shadow(
       offset: Offset(0, 0),
-      blurRadius: 4.sp,
+      blurRadius: 20.sp,
       color: Colors.white,
     ),
   ],
@@ -57,3 +57,10 @@ final backgroundColors = [Color(0xff1B1D29), Color(0xff331A38), Color(0xff142F48
 
 final dynamicBackgrounds = [];
 final abstractBackgrounds = [];
+
+final List<Locale> locales = [
+  Locale('en', 'US'),
+  Locale('ja', 'JP'),
+  Locale('ko', 'KR'),
+  Locale('zh', 'CN'),
+];

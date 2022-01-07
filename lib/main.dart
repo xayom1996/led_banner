@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:led_banner/controllers/dashboard_bindings.dart';
 import 'package:led_banner/localization_service.dart';
 import 'package:led_banner/pages/splash_page.dart';
+import 'package:led_banner/utils/utils.dart';
 
 void main(){
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        locale: window.locale,
+        locale: locales.contains(window.locale) ? window.locale : Locale('en', 'US'),
         fallbackLocale: LocalizationService.fallbackLocale,
         translations: LocalizationService(),
         title: "Led Banner",

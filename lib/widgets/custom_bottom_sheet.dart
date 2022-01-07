@@ -247,10 +247,10 @@ class CustomBottomSheet extends StatelessWidget {
                                 child: Rectangle(
                                   isActive: parameters.value.shadows!.isNotEmpty,
                                   onTap: () {
-                                    parameters.value.shadows = const <Shadow>[
+                                    parameters.value.shadows = <Shadow>[
                                       Shadow(
                                         offset: Offset(0, 0),
-                                        blurRadius: 4.0,
+                                        blurRadius: 20.sp,
                                         color: Colors.white,
                                       ),
                                     ];
@@ -262,10 +262,10 @@ class CustomBottomSheet extends StatelessWidget {
                                         fontSize: 17.sp,
                                         fontFamily: 'Outfit',
                                         color: Colors.white,
-                                        shadows: const <Shadow>[
+                                        shadows: <Shadow>[
                                           Shadow(
                                             offset: Offset(0, 0),
-                                            blurRadius: 4.0,
+                                            blurRadius: 20.sp,
                                             color: Colors.white,
                                           ),
                                         ],

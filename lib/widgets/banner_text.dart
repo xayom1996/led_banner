@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:led_banner/models/banner.dart';
 import 'package:led_banner/theme/color_theme.dart';
 import 'package:led_banner/theme/text_theme.dart';
@@ -14,20 +16,15 @@ class BannerText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(parameters.speed);
     return RotatedBox(
       quarterTurns: parameters.textDirections == Axis.vertical
           ? 1
           : 0,
-      child: parameters.speed != 'Still'
+      child: parameters.speed != 'still'.tr
           ? Marquee(
               text: text,
-              velocity: parameters.speed == '0.5x'
-                  ? 50
-                    : parameters.speed == '1.5x'
-                      ? 150
-                        : parameters.speed == '2x'
-                        ? 200
-                          : 100,
+              velocity: _getVelocity(parameters.speed!),
               blankSpace: parameters.textDirections == Axis.vertical
                   ? MediaQuery.of(context).size.height - 48.h
                   : MediaQuery.of(context).size.width,
@@ -49,5 +46,20 @@ class BannerText extends StatelessWidget {
               ),
             )
     );
+  }
+
+  double _getVelocity(String speed) {
+    switch (speed) {
+      case '0.5x':
+        return 50;
+      case '1x':
+        return 100;
+      case '1.5x':
+        return 150;
+      case '2x':
+        return 200;
+      default:
+        return 100;
+    }
   }
 }

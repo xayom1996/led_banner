@@ -31,7 +31,7 @@ class TemplatesPage extends StatelessWidget {
       shadows: <Shadow>[
         Shadow(
           offset: Offset(0, 0),
-          blurRadius: 4.sp,
+          blurRadius: 20.sp,
           color: Colors.white,
         ),
       ],

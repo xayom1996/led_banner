@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:led_banner/models/banner.dart';
 import 'package:led_banner/theme/color_theme.dart';
 import 'package:led_banner/theme/text_theme.dart';
+import 'package:led_banner/widgets/list_view_banner_text.dart';
 import 'package:led_banner/widgets/video_background_container.dart';
 import 'package:led_banner/widgets/banner_text.dart';
 import 'package:led_banner/widgets/custom_bottom_sheet.dart';
@@ -47,21 +48,25 @@ class BannerPage extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: bannerText.value != ''
-                ? parameters.value.gradient != null
-                  ? ShaderMask(
-                      blendMode: BlendMode.srcIn,
-                      shaderCallback: (bounds) => parameters.value.gradient!.createShader(
-                        Rect.fromLTWH(0, 0, bounds.width, bounds.height),
-                      ),
-                      child: BannerText(
+                ? Obx(() => ListViewBannerText(
+                  speed: parameters.value.speed!,
+                  textDirections: parameters.value.textDirections,
+                  child: parameters.value.gradient != null
+                    ? ShaderMask(
+                        blendMode: BlendMode.srcIn,
+                        shaderCallback: (bounds) => parameters.value.gradient!.createShader(
+                          Rect.fromLTWH(0, 0, bounds.width, bounds.height),
+                        ),
+                        child: BannerText(
+                            text: bannerText.value,
+                            parameters: parameters.value
+                          ),
+                      )
+                    : BannerText(
                           text: bannerText.value,
                           parameters: parameters.value
-                        ),
-                    )
-                  : BannerText(
-                        text: bannerText.value,
-                        parameters: parameters.value
-                    )
+                      ),
+                ))
                 : Padding(
                     padding: EdgeInsets.all(24.sp),
                     child: Column(
@@ -87,15 +92,6 @@ class BannerPage extends StatelessWidget {
                     ),
                   ),
             ),
-            // Marquee(
-            //   text: 'Hello',
-            //   velocity: 200,
-            //   blankSpace: MediaQuery.of(context).size.width,
-            //   scrollAxis: Axis.horizontal,
-            //   style: headline.copyWith(
-            //       color: Colors.white
-            //   ),
-            // ),
 
             if (isTemplate)
               Positioned(

@@ -23,7 +23,7 @@ class Rectangle extends StatelessWidget {
           color: color,
           gradient: gradient,
           borderRadius: BorderRadius.all(Radius.circular(8.sp)),
-          border: isActive ? Border.all(color: Colors.blueAccent, width: 2.w) : null,
+          border: isActive ? Border.all(color: Colors.blueAccent, width: 1) : null,
         ),
         child: Center(
           child: child,

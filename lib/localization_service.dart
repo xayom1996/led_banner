@@ -12,7 +12,7 @@ class LocalizationService extends Translations {
   static final locale = Locale('en', 'US');
 
   // fallbackLocale saves the day when the locale gets in trouble
-  static final fallbackLocale = Locale('tr', 'TR');
+  static final fallbackLocale = Locale('en', 'US');
 
   // Supported languages
   // Needs to be same order with locales

@@ -7,7 +7,7 @@ import 'package:led_banner/pages/templates_page.dart';
 
 class DashboardController extends GetxController {
   static DashboardController get to => Get.find(tag: 'dashboard');
-  var tabIndex = 0.obs;
+  var tabIndex = 1.obs;
   List<Widget>? pages;
 
   @override
