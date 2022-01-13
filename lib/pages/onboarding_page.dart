@@ -203,11 +203,9 @@ class ExplanationPage extends StatelessWidget{
         if (isLastPage)
           Positioned(
             top: 8.sp,
-            left: 8.sp,
+            right: 8.sp,
             child: IconButton(
               onPressed: (){
-                // PasswordController passwordController = Get.find(tag: 'password');
-
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
@@ -219,7 +217,7 @@ class ExplanationPage extends StatelessWidget{
               icon: Icon(
                 Icons.close,
                 size: 24.sp,
-                color: Colors.white,
+                color: Color(0xff454B5B),
                 // #5B5B5B
               ),
             ),
@@ -249,7 +247,7 @@ class ExplanationPage extends StatelessWidget{
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8.sp),
+                  padding: EdgeInsets.symmetric(horizontal: 46.sp),
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
@@ -257,10 +255,10 @@ class ExplanationPage extends StatelessWidget{
                   ),
                 ),
                 SizedBox(
-                  height: 12.h,
+                  height: 24.h,
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8.sp),
+                  padding: EdgeInsets.symmetric(horizontal: 46.sp),
                   child: Text(
                     description,
                     textAlign: TextAlign.center,

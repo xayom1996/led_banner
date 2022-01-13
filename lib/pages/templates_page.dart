@@ -24,10 +24,12 @@ class TemplatesPage extends StatelessWidget {
       abstractBackground: 'assets/abstract_backgrounds/14.png',
       fontSize: 144,
       fontColor: fontColors[3],
+      speed: 'still'.tr,
     ),
     BannerParameters(
       backgroundColor: backgroundColors[1],
       fontSize: 144,
+
       shadows: <Shadow>[
         Shadow(
           offset: Offset(0, 0),
@@ -35,31 +37,36 @@ class TemplatesPage extends StatelessWidget {
           color: Colors.white,
         ),
       ],
-      fontColor: fontColors[0]
+      fontColor: fontColors[0],
+      speed: 'still'.tr,
     ),
     BannerParameters(
-        backgroundColor: Color(0xffFECC50),
-        font: 'ArchivoBlack',
-        fontSize: 144,
-        fontColor: Color(0xff4C44CF)
+      backgroundColor: Color(0xffFECC50),
+      font: 'ArchivoBlack',
+      fontSize: 144,
+      fontColor: Color(0xff4C44CF),
+      speed: 'still'.tr,
     ),
     BannerParameters(
-        abstractBackground: 'assets/abstract_backgrounds/13.png',
-        font: 'Cinzel',
-        fontSize: 144,
-        fontColor: Color(0xff1B1D29)
+      abstractBackground: 'assets/abstract_backgrounds/13.png',
+      font: 'Cinzel',
+      fontSize: 144,
+      fontColor: Color(0xff1B1D29),
+      speed: 'still'.tr,
     ),
     BannerParameters(
-        backgroundColor: Color(0xff142F48),
-        font: 'PressStart2P',
-        fontSize: 144,
-        fontColor: Color(0xff70FF00)
+      backgroundColor: Color(0xff142F48),
+      font: 'PressStart2P',
+      fontSize: 144,
+      fontColor: Color(0xff70FF00),
+      speed: 'still'.tr,
     ),
     BannerParameters(
-        abstractBackground: 'assets/abstract_backgrounds/15.png',
-        font: 'Aclonica',
-        fontSize: 144,
-        fontColor: Color(0xffFA448C)
+      abstractBackground: 'assets/abstract_backgrounds/15.png',
+      font: 'Aclonica',
+      fontSize: 144,
+      fontColor: Color(0xffFA448C),
+      speed: 'still'.tr,
     ),
   ];
 

@@ -13,7 +13,9 @@ import 'package:led_banner/widgets/rectangle.dart';
 
 class CustomBottomSheet extends StatelessWidget {
   final Rx<BannerParameters> parameters;
-  CustomBottomSheet({Key? key, required this.parameters}) : super(key: key);
+  final Function(BannerParameters) onChange;
+
+  CustomBottomSheet({Key? key, required this.parameters, required this.onChange}) : super(key: key);
   RxString tab = 'text'.obs;
 
   @override
@@ -83,6 +85,7 @@ class CustomBottomSheet extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
+                      onChange(parameters.value);
                       Get.back();
                     },
                     child: SvgPicture.asset(
@@ -328,7 +331,7 @@ class CustomBottomSheet extends StatelessWidget {
                                               Text(
                                                 'Aa',
                                                 style: TextStyle(
-                                                  fontSize: 17.sp,
+                                                  fontSize: 15.sp,
                                                   fontFamily: 'Outfit',
                                                   color: Colors.white,
                                                 ),
@@ -337,7 +340,7 @@ class CustomBottomSheet extends StatelessWidget {
                                                 quarterTurns: 1,
                                                 child: Icon(
                                                   Icons.arrow_right_alt,
-                                                  size: 16.sp,
+                                                  size: 14.sp,
                                                   color: Colors.white,
                                                 ),
                                               ),
@@ -352,14 +355,14 @@ class CustomBottomSheet extends StatelessWidget {
                                                 Text(
                                                   'Aa',
                                                   style: TextStyle(
-                                                    fontSize: 17.sp,
+                                                    fontSize: 15.sp,
                                                     fontFamily: 'Outfit',
                                                     color: Colors.white,
                                                   ),
                                                 ),
                                                 Icon(
                                                   Icons.arrow_right_alt,
-                                                  size: 16.sp,
+                                                  size: 14.sp,
                                                   color: Colors.white,
                                                 ),
                                               ],

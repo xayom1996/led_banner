@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class BannerParameters {
   String font;
@@ -20,9 +21,22 @@ class BannerParameters {
     this.gradient,
     this.shadows = const [],
     this.textDirections = Axis.vertical,
-    this.speed = 'Still',
+    this.speed,
     this.backgroundColor,
     this.dynamicBackground,
     this.abstractBackground
   });
+
+  BannerParameters copy() => BannerParameters(
+    font: font,
+    fontSize: fontSize,
+    fontColor: fontColor,
+    gradient: gradient,
+    shadows: shadows,
+    textDirections: textDirections,
+    speed: speed,
+    backgroundColor: backgroundColor,
+    dynamicBackground: dynamicBackground,
+    abstractBackground: abstractBackground
+  );
 }

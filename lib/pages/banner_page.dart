@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
 
@@ -20,26 +21,37 @@ class BannerPage extends StatelessWidget {
   final bool isTemplate;
   final RxString bannerText;
   BannerPage({Key? key, required this.parameters, this.isTemplate = false, required this.bannerText}) : super(key: key);
-  // BannerParameters parameters = BannerParameters();
+
+  BannerParameters newParameters = BannerParameters(
+    speed: 'still'.tr,
+  );
+  String newBannerText = '';
+
   FocusNode myFocusNode = FocusNode();
+  RxBool isLoading = false.obs;
+  TextEditingController bannerTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    newParameters = parameters.value;
+    newBannerText = bannerText.value;
+    bannerTextController.text = newBannerText;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: backgroundColor,
         resizeToAvoidBottomInset: true,
         body: Obx(() => Stack(
           children: [
-            if (parameters.value.dynamicBackground != null)
+            if (parameters.value.dynamicBackground != null && isLoading.value == false)
               VideoBackgroundContainer(
                 videoAsset: parameters.value.dynamicBackground!,
               ),
-            if (parameters.value.backgroundColor != null)
+            if (parameters.value.backgroundColor != null && isLoading.value == false)
               Container(
                 color: parameters.value.backgroundColor,
               ),
-            if (parameters.value.abstractBackground != null)
+            if (parameters.value.abstractBackground != null && isLoading.value == false)
               Image.asset(
                 parameters.value.abstractBackground!,
                 fit: BoxFit.cover,
@@ -48,11 +60,15 @@ class BannerPage extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: bannerText.value != ''
-                ? Obx(() => ListViewBannerText(
-                  speed: parameters.value.speed!,
-                  textDirections: parameters.value.textDirections,
-                  child: parameters.value.gradient != null
-                    ? ShaderMask(
+                  ? Obx(() => isLoading.value == true
+                  ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                  : ListViewBannerText(
+                      speed: parameters.value.speed!,
+                      textDirections: parameters.value.textDirections,
+                      child: parameters.value.gradient != null
+                          ? ShaderMask(
                         blendMode: BlendMode.srcIn,
                         shaderCallback: (bounds) => parameters.value.gradient!.createShader(
                           Rect.fromLTWH(0, 0, bounds.width, bounds.height),
@@ -60,37 +76,37 @@ class BannerPage extends StatelessWidget {
                         child: BannerText(
                             text: bannerText.value,
                             parameters: parameters.value
-                          ),
+                        ),
                       )
-                    : BannerText(
+                          : BannerText(
                           text: bannerText.value,
                           parameters: parameters.value
                       ),
-                ))
-                : Padding(
-                    padding: EdgeInsets.all(24.sp),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'home_intro_text'.tr,
-                          textAlign: TextAlign.center,
-                          style: headline.copyWith(
-                              color: Colors.white
+                    ))
+                  : Padding(
+                      padding: EdgeInsets.all(24.sp),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'home_intro_text'.tr,
+                            textAlign: TextAlign.center,
+                            style: headline.copyWith(
+                                color: Colors.white
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 36.h,
-                        ),
-                        SvgPicture.asset(
-                          'assets/icons/arrow_down.svg',
-                          color: Colors.white,
-                          height: 16.h,
-                        ),
-                      ],
+                          SizedBox(
+                            height: 36.h,
+                          ),
+                          SvgPicture.asset(
+                            'assets/icons/arrow_down.svg',
+                            color: Colors.white,
+                            height: 16.h,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
             ),
 
             if (isTemplate)
@@ -126,33 +142,60 @@ class BannerPage extends StatelessWidget {
                   SizedBox(
                     width: 0.6.sw,
                     child: Container(
+                        height: 48.h,
+                        padding: EdgeInsets.symmetric(horizontal: 16.sp, vertical: 10.sp),
+                        decoration: BoxDecoration(
+                            color: Color(0xff2D2A38),
+                            borderRadius: BorderRadius.all(Radius.circular(8.sp))
+                        ),
+                        child: TextField(
+                          focusNode: myFocusNode,
+                          controller: bannerTextController,
+                          style: body1.copyWith(
+                              color: Colors.white
+                          ),
+                          onChanged: (String value) {
+                            newBannerText = value;
+                          },
+                          decoration: InputDecoration(
+                            hintText: 'bannex_text_placehoalder'.tr,
+                            hintStyle: body1.copyWith(
+                                color: Color(0xff454B5B)
+                            ),
+                            contentPadding: const EdgeInsets.all(0),
+                            isDense: true,
+                            border: InputBorder.none,
+                            errorBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            enabledBorder: InputBorder.none,
+                          ),
+                        )
+                    ),
+                  ),
+                  SizedBox(width: 8.sp,),
+                  GestureDetector(
+                    onTap: () {
+                      isLoading(true);
+                      Timer(Duration(milliseconds: 500), () {
+                        bannerText(newBannerText);
+                        parameters(newParameters);
+                        parameters.refresh();
+                        isLoading(false);
+                      });
+                    },
+                    child: Container(
                       height: 48.h,
-                      padding: EdgeInsets.symmetric(horizontal: 16.sp, vertical: 10.sp),
+                      width: 48.h,
                       decoration: BoxDecoration(
                           color: Color(0xff2D2A38),
                           borderRadius: BorderRadius.all(Radius.circular(8.sp))
                       ),
-                      child: TextField(
-                        focusNode: myFocusNode,
-                        style: body1.copyWith(
-                            color: Colors.white
+                      child: Center(
+                        child: SvgPicture.asset(
+                          'assets/icons/check_text_icon.svg',
+                          height: 18.sp,
                         ),
-                        onChanged: (String value) {
-                          bannerText(value);
-                        },
-                        decoration: InputDecoration(
-                          hintText: 'bannex_text_placehoalder'.tr,
-                          hintStyle: body1.copyWith(
-                            color: Color(0xff454B5B)
-                          ),
-                          contentPadding: const EdgeInsets.all(0),
-                          isDense: true,
-                          border: InputBorder.none,
-                          errorBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          enabledBorder: InputBorder.none,
-                        ),
-                      )
+                      ),
                     ),
                   ),
                   SizedBox(width: 8.sp,),
@@ -160,29 +203,15 @@ class BannerPage extends StatelessWidget {
                     onTap: () {
                       FocusManager.instance.primaryFocus!.unfocus();
                       Get.bottomSheet(
-                        CustomBottomSheet(parameters: parameters),
+                        CustomBottomSheet(
+                          parameters: parameters.value.copy().obs,
+                          onChange: (BannerParameters newParams) {
+                            newParameters = newParams;
+                          },
+                        ),
+                        isDismissible: false,
                         backgroundColor: Colors.transparent,
                       );
-                    },
-                    child: Container(
-                      height: 48.h,
-                      width: 48.h,
-                      decoration: BoxDecoration(
-                        color: Color(0xff2D2A38),
-                        borderRadius: BorderRadius.all(Radius.circular(8.sp))
-                      ),
-                      child: Center(
-                          child: SvgPicture.asset(
-                            'assets/icons/check_text_icon.svg',
-                            height: 18.sp,
-                          ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 8.sp,),
-                  GestureDetector(
-                    onTap: () {
-                      myFocusNode.requestFocus();
                     },
                     child: Container(
                       height: 48.h,
@@ -194,8 +223,8 @@ class BannerPage extends StatelessWidget {
                         ),
                       ),
                       decoration: BoxDecoration(
-                        color: Color(0xff2D2A38),
-                        borderRadius: BorderRadius.all(Radius.circular(8.sp))
+                          color: Color(0xff2D2A38),
+                          borderRadius: BorderRadius.all(Radius.circular(8.sp))
                       ),
                     ),
                   ),
@@ -203,7 +232,8 @@ class BannerPage extends StatelessWidget {
               ),
             ),
           ],
-        )),
+        )
+        ),
       ),
     );
   }

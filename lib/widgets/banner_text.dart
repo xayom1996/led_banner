@@ -16,14 +16,15 @@ class BannerText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(parameters.speed);
     return RotatedBox(
       quarterTurns: parameters.textDirections == Axis.vertical
           ? 1
           : 0,
-      child: parameters.speed != 'still'.tr
+      child: parameters.speed != null && parameters.speed != 'still'.tr
           ? Marquee(
               text: text,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              // startPadding: 100.0,
               velocity: _getVelocity(parameters.speed!),
               blankSpace: parameters.textDirections == Axis.vertical
                   ? MediaQuery.of(context).size.height - 48.h

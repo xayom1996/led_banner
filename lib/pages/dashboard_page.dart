@@ -63,7 +63,7 @@ class MyNavBar extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 50.h,
+        height: 66.h,
         decoration: BoxDecoration(
           color: bottomNavColor,
           boxShadow: [
@@ -77,7 +77,8 @@ class MyNavBar extends StatelessWidget{
         ),
         padding: EdgeInsets.only(
           left: 25.sp,
-          right: 25.sp
+          right: 25.sp,
+          bottom: 16.sp,
         ),
         child: Obx(() => Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -140,26 +141,4 @@ class MyNavBar extends StatelessWidget{
     );
   }
 
-}
-
-ListTile buildListTile(
-    BuildContext context, IconData icon, String title, Widget onPress) {
-  return ListTile(
-    contentPadding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
-    onTap: () {
-      if(icon == Icons.supervised_user_circle_rounded)
-        Navigator.pop(context);
-      // Navigator.pop(context);
-      Navigator.push(context, MaterialPageRoute(builder: (context) => onPress));
-    },
-    leading: Icon(
-      icon,
-      size: 22,
-      color: Theme.of(context).primaryColor,
-    ),
-    title: Text(
-      title,
-      style: TextStyle(letterSpacing: 2).copyWith(fontSize: 16),
-    ),
-  );
 }

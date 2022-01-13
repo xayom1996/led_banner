@@ -15,7 +15,9 @@ class DashboardController extends GetxController {
     pages = [
       TemplatesPage(),
       BannerPage(
-        parameters: BannerParameters().obs,
+        parameters: BannerParameters(
+          speed: 'still'.tr,
+        ).obs,
         bannerText: ''.obs,
       ),
       SettingsPage(),
