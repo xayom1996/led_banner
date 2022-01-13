@@ -206,12 +206,12 @@ class ExplanationPage extends StatelessWidget{
             right: 8.sp,
             child: IconButton(
               onPressed: (){
-                Navigator.pushAndRemoveUntil(
+                Navigator.pop(context);
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => DashboardPage(),
                   ),
-                      (route) => false,
                 );
               },
               icon: Icon(
