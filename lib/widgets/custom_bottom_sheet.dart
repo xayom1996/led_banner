@@ -14,8 +14,9 @@ import 'package:led_banner/widgets/rectangle.dart';
 class CustomBottomSheet extends StatelessWidget {
   final Rx<BannerParameters> parameters;
   final Function(BannerParameters) onChange;
+  final RxBool isLoading;
 
-  CustomBottomSheet({Key? key, required this.parameters, required this.onChange}) : super(key: key);
+  CustomBottomSheet({Key? key, required this.parameters, required this.onChange, required this.isLoading}) : super(key: key);
   RxString tab = 'text'.obs;
 
   @override
@@ -396,8 +397,15 @@ class CustomBottomSheet extends StatelessWidget {
                                     child: Rectangle(
                                       isActive: parameters.value.speed == speeds[i],
                                       onTap: () {
-                                        parameters.value.speed = speeds[i];
-                                        parameters.refresh();
+                                        if (speeds[i] != parameters.value.speed) {
+                                          isLoading(true);
+                                          parameters.value.speed = speeds[i];
+                                          parameters.refresh();
+                                          Timer(
+                                              Duration(milliseconds: 500), () {
+                                            isLoading(false);
+                                          });
+                                        }
                                       },
                                       child: Text(
                                         speeds[i],
@@ -470,13 +478,13 @@ class CustomBottomSheet extends StatelessWidget {
                                     child: Rectangle(
                                       isActive: parameters.value.dynamicBackground == 'assets/dynamic_backgrounds/${i + 1}.mp4',
                                       onTap: () {
-                                        parameters.value.dynamicBackground = null;
+                                        isLoading(true);
+                                        parameters.value.dynamicBackground = 'assets/dynamic_backgrounds/${i + 1}.mp4';
+                                        parameters.value.abstractBackground = null;
+                                        parameters.value.backgroundColor = null;
                                         parameters.refresh();
-                                        Timer(Duration(milliseconds: 300), () {
-                                          parameters.value.dynamicBackground = 'assets/dynamic_backgrounds/${i + 1}.mp4';
-                                          parameters.value.abstractBackground = null;
-                                          parameters.value.backgroundColor = null;
-                                          parameters.refresh();
+                                        Timer(Duration(milliseconds: 500), () {
+                                          isLoading(false);
                                         });
                                       },
                                       child: Image.asset(

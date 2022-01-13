@@ -25,7 +25,7 @@ class BannerPage extends StatelessWidget {
   BannerParameters newParameters = BannerParameters(
     speed: 'still'.tr,
   );
-  String newBannerText = '';
+  // String newBannerText = '';
 
   FocusNode myFocusNode = FocusNode();
   RxBool isLoading = false.obs;
@@ -34,8 +34,8 @@ class BannerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     newParameters = parameters.value;
-    newBannerText = bannerText.value;
-    bannerTextController.text = newBannerText;
+    // newBannerText = bannerText.value;
+    bannerTextController.text = bannerText.value;
 
     return SafeArea(
       child: Scaffold(
@@ -155,7 +155,7 @@ class BannerPage extends StatelessWidget {
                               color: Colors.white
                           ),
                           onChanged: (String value) {
-                            newBannerText = value;
+                            bannerText(value);
                           },
                           decoration: InputDecoration(
                             hintText: 'bannex_text_placehoalder'.tr,
@@ -175,13 +175,13 @@ class BannerPage extends StatelessWidget {
                   SizedBox(width: 8.sp,),
                   GestureDetector(
                     onTap: () {
-                      isLoading(true);
-                      Timer(Duration(milliseconds: 500), () {
-                        bannerText(newBannerText);
-                        parameters(newParameters);
-                        parameters.refresh();
-                        isLoading(false);
-                      });
+                      FocusManager.instance.primaryFocus!.unfocus();
+                      // isLoading(true);
+                      // Timer(Duration(milliseconds: 500), () {
+                      //   parameters(newParameters);
+                      //   parameters.refresh();
+                      //   isLoading(false);
+                      // });
                     },
                     child: Container(
                       height: 48.h,
@@ -204,12 +204,12 @@ class BannerPage extends StatelessWidget {
                       FocusManager.instance.primaryFocus!.unfocus();
                       Get.bottomSheet(
                         CustomBottomSheet(
-                          parameters: parameters.value.copy().obs,
+                          parameters: parameters,
                           onChange: (BannerParameters newParams) {
                             newParameters = newParams;
                           },
+                          isLoading: isLoading,
                         ),
-                        isDismissible: false,
                         backgroundColor: Colors.transparent,
                       );
                     },
