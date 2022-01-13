@@ -200,28 +200,6 @@ class ExplanationPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        if (isLastPage)
-          Positioned(
-            top: 8.sp,
-            right: 8.sp,
-            child: IconButton(
-              onPressed: (){
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DashboardPage(),
-                  ),
-                );
-              },
-              icon: Icon(
-                Icons.close,
-                size: 24.sp,
-                color: Color(0xff454B5B),
-                // #5B5B5B
-              ),
-            ),
-          ),
         Column(
           // crossAxisAlignment: CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.center,
@@ -271,6 +249,28 @@ class ExplanationPage extends StatelessWidget{
             ),
           ],
         ),
+        if (isLastPage)
+          Positioned(
+            top: 8.sp,
+            right: 8.sp,
+            child: IconButton(
+              onPressed: (){
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DashboardPage(),
+                  ),
+                );
+              },
+              icon: Icon(
+                Icons.close,
+                size: 24.sp,
+                color: Color(0xff454B5B),
+                // #5B5B5B
+              ),
+            ),
+          ),
       ],
     );
   }
